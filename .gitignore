@@ -1,0 +1,13 @@
+.env
+.env.*
+!.env.example
+.n8n/
+.wrangler/
+node_modules/
+dist/
+*.sqlite
+*.sqlite3
+*.db
+execution-data/
+private-exports/
+.DS_Store

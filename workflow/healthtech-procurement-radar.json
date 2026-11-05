@@ -1,0 +1,651 @@
+{
+  "name": "HealthTech Procurement Radar",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -16,
+        -224
+      ],
+      "id": "561c8879-cd96-41ff-a538-95059b250ab1",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "url": "https://www.datos.gov.co/resource/p6dx-8zbt.json",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "$limit",
+              "value": "100"
+            },
+            {
+              "name": "$order",
+              "value": "fecha_de_ultima_publicaci DESC"
+            },
+            {
+              "name": "$where",
+              "value": "\n(\n  upper(unaccent(nombre_del_procedimiento)) like '%BIOMED%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%BIOMED%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%DISPOSITIV%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%DISPOSITIV%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%INSUM%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%INSUM%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%SUMINISTR%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%SUMINISTR%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%EQUIP%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%EQUIP%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%MEDICAMENT%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%MEDICAMENT%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%FARMAC%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%FARMAC%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%MATERIAL MEDIC%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%MATERIAL MEDIC%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%MATERIAL QUIRURG%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%MATERIAL QUIRURG%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%QUIRURG%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%QUIRURG%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%CAMILLA%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%CAMILLA%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%AMBULAN%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%AMBULAN%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%LABORATOR%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%LABORATOR%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%REACTIV%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%REACTIV%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%ODONTO%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%ODONTO%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%DENTAL%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%DENTAL%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%DIAGNOST%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%DIAGNOST%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%OXIGEN%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%OXIGEN%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%VENTILADOR%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%VENTILADOR%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%MONITOR%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%MONITOR%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%DESFIBRIL%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%DESFIBRIL%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%AUTOCLAV%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%AUTOCLAV%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%ESTERILIZ%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%ESTERILIZ%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%RAYOS X%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%RAYOS X%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%TOMOGRAF%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%TOMOGRAF%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%RESONANC%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%RESONANC%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%ECOGRAF%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%ECOGRAF%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%ULTRASON%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%ULTRASON%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%ENDOSCOP%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%ENDOSCOP%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%CATETER%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%CATETER%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%SONDA%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%SONDA%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%JERING%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%JERING%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%GUANTE%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%GUANTE%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%GASA%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%GASA%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%PROTESIS%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%PROTESIS%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%ORTOPED%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%ORTOPED%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%MARCAPASO%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%MARCAPASO%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%HEMODIAL%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%HEMODIAL%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%INFUSION%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%INFUSION%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%VACUN%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%VACUN%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%CAMA HOSPITAL%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%CAMA HOSPITAL%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%MESA QUIRURG%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%MESA QUIRURG%'\n\n  OR upper(unaccent(nombre_del_procedimiento)) like '%SILLON DENTAL%'\n  OR upper(unaccent(descripci_n_del_procedimiento)) like '%SILLON DENTAL%'\n)\n"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        432,
+        -224
+      ],
+      "id": "ae73e77a-b43f-4043-9663-bdf0cd133bfd",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst items = $input.all();\n\n// Normalización de texto: elimina tildes,\n// uniformiza mayúsculas y espacios.\nconst normalize = (value) =>\n  String(value ?? \"\")\n    .normalize(\"NFD\")\n    .replace(/[\\u0300-\\u036f]/g, \"\")\n    .toUpperCase()\n    .replace(/[^A-Z0-9]+/g, \" \")\n    .trim();\n\nconst hasAny = (text, terms) =>\n  terms.some((term) => text.includes(term));\n\nconst findMatches = (text, terms) =>\n  terms.filter((term) => text.includes(term));\n\nreturn items.map((item) => {\n  const j = item.json;\n\n  const title = normalize(j.nombre_del_procedimiento);\n  const description = normalize(\n    j.descripci_n_del_procedimiento\n  );\n  const entity = normalize(j.entidad);\n\n  const text = `${title} ${description}`;\n\n  // Familias de productos y servicios.\n  const rules = {\n    biomedical: [\n      \"EQUIPO BIOMEDICO\",\n      \"EQUIPOS BIOMEDICOS\",\n      \"BIOMEDIC\",\n      \"DISPOSITIVO MEDICO\",\n      \"EQUIPO MEDICO\",\n      \"EQUIPOS MEDICOS\",\n      \"FOTOTERAPIA\",\n      \"DESFIBRILADOR\",\n      \"ECOGRAFO\",\n      \"ELECTROCARDIOGRAF\",\n      \"VENTILADOR MECANICO\",\n      \"MONITOR DE SIGNOS\",\n      \"MONITOR DE PACIENTE\",\n      \"RAYOS X\",\n      \"TERMOHIGROMETRO\"\n    ],\n\n    supplies: [\n      \"MATERIAL MEDICO\",\n      \"MEDICO QUIRURG\",\n      \"INSUMOS MEDICOS\",\n      \"INSUMOS HOSPITALARIOS\",\n      \"DISPOSITIVOS MEDICOS\",\n      \"CATETER\",\n      \"SONDA\",\n      \"SUTURA\",\n      \"CANULA\",\n      \"JERINGA\",\n      \"APOSITO\",\n      \"GUANTES QUIRURGICOS\",\n      \"ASAS LEEP\",\n      \"HEMOCOMPONENT\",\n      \"OXIGENO MEDICINAL\",\n      \"CILINDRO MEDICINAL\"\n    ],\n\n    laboratory: [\n      \"REACTIV\",\n      \"EQUIPO DE LABORATORIO\",\n      \"EQUIPOS DE LABORATORIO\",\n      \"LABORATORIO CLINICO\",\n      \"ANALIZADOR\",\n      \"CENTRIFUG\",\n      \"MICROSCOP\"\n    ],\n\n    furniture: [\n      \"CAMILLA\",\n      \"CAMA HOSPITALARIA\",\n      \"MOBILIARIO HOSPITAL\",\n      \"MESA QUIRURG\",\n      \"CUNA TERMICA\"\n    ],\n\n    medicines: [\n      \"MEDICAMENTO\",\n      \"FARMACO\",\n      \"VACUNA\"\n    ],\n\n    dental: [\n      \"EQUIPO ODONTOLOG\",\n      \"MATERIAL ODONTOLOG\",\n      \"UNIDAD ODONTOLOG\",\n      \"CAVITRON\"\n    ],\n\n    maintenance: [\n      \"MANTENIMIENTO\",\n      \"CALIBRACION\",\n      \"REPARACION\",\n      \"REPUESTO\",\n      \"SERVICIO TECNICO\"\n    ],\n\n    digitalHealth: [\n      \"SOFTWARE\",\n      \"SISTEMA DE INFORMACION\",\n      \"HISTORIA CLINICA ELECTRONICA\"\n    ],\n\n    personnel: [\n      \"PRESTACION DE SERVICIOS\",\n      \"SERVICIOS PROFESIONALES\",\n      \"MEDICO GENERAL\",\n      \"MEDICO DE\",\n      \"ENFERMER\",\n      \"AUXILIAR\",\n      \"PSICOLOG\",\n      \"ODONTOLOGO\",\n      \"APOYO A LA GESTION\",\n      \"COORDINADOR\",\n      \"PRESTAR SUS SERVICIOS\",\n      \"PRESTAR SERVICIOS\",\n      \"FACTURACION\"\n    ]\n  };\n\n  const detected = {};\n\n  for (const [key, terms] of Object.entries(rules)) {\n    detected[key] = findMatches(text, terms);\n  }\n\n  // Identificar intención comercial.\n  const purchaseTerms = [\n    \"COMPRA\",\n    \"ADQUISICION\",\n    \"SUMINISTRO\",\n    \"COMPRAVENTA\",\n    \"ENTREGAR\",\n    \"DOTACION\",\n    \"ORDEN DE COMPRA\",\n    \"ALQUILER\",\n    \"ARRENDAMIENTO\"\n  ];\n\n  const hasPurchaseIntent = hasAny(text, purchaseTerms);\n\n  // Clasificación del proceso.\n  let category = \"Revisión manual\";\n  let commercialType = \"No identificado\";\n\n  const hasMaintenance =\n    detected.maintenance.length > 0;\n\n  const hasMedicalEquipment =\n    detected.biomedical.length > 0 ||\n    detected.supplies.length > 0 ||\n    detected.laboratory.length > 0 ||\n    detected.dental.length > 0;\n\n  const isMaintenance =\n    hasMaintenance && hasMedicalEquipment;\n\n  if (isMaintenance) {\n    category = \"Mantenimiento biomédico / técnico\";\n    commercialType = \"Servicio técnico\";\n\n  } else if (detected.biomedical.length > 0) {\n    category = \"Equipos biomédicos\";\n    commercialType = \"Producto\";\n\n  } else if (detected.supplies.length > 0) {\n    category = \"Insumos y dispositivos médicos\";\n    commercialType = \"Producto\";\n\n  } else if (detected.dental.length > 0) {\n    category = \"Equipamiento odontológico\";\n    commercialType = \"Producto\";\n\n  } else if (detected.laboratory.length > 0) {\n    category = \"Laboratorio y diagnóstico\";\n    commercialType = \"Producto / laboratorio\";\n\n  } else if (detected.medicines.length > 0) {\n    category = \"Medicamentos\";\n    commercialType = \"Producto\";\n\n  } else if (detected.furniture.length > 0) {\n    category = \"Mobiliario hospitalario\";\n    commercialType = \"Producto\";\n\n  } else if (detected.digitalHealth.length > 0) {\n    category = \"Software y sistemas de salud\";\n    commercialType = \"Tecnología\";\n\n  } else if (detected.personnel.length > 0) {\n    category = \"Servicios profesionales / talento humano\";\n    commercialType = \"Servicios profesionales\";\n\n  } else if (\n    /HOSPITAL|SALUD|ESE|IPS|CLINIC/.test(\n      `${entity} ${text}`\n    )\n  ) {\n    category = \"Otros servicios del sector salud\";\n    commercialType = \"Otros servicios\";\n  }\n\n  // Normalización del presupuesto.\n  const price = Number(\n    String(j.precio_base ?? \"\").replace(/[^\\d.-]/g, \"\")\n  ) || 0;\n\n  // Estado de contratación.\n  const status = normalize(j.estado_del_procedimiento);\n  const adjudicado = normalize(j.adjudicado);\n  const statusSummary = normalize(j.estado_resumen);\n\n  let trackingStatus = \"POR_VERIFICAR\";\n\n  if (status.includes(\"CANCEL\")) {\n    trackingStatus = \"CANCELADO\";\n  } else if (\n    adjudicado === \"SI\" ||\n    statusSummary.includes(\"ADJUDICADO\")\n  ) {\n    trackingStatus = \"ADJUDICADO\";\n  } else if (status.includes(\"BORRADOR\")) {\n    trackingStatus = \"BORRADOR\";\n  } else if (\n    [\n      \"PUBLICADO\",\n      \"SELECCIONADO\",\n      \"EVALUACION\",\n      \"EN APROBACION\",\n      \"APROBADO\"\n    ].some((value) => status.includes(value))\n  ) {\n    trackingStatus = \"EN_SEGUIMIENTO\";\n  }\n\n  // Cálculo determinístico de relevancia.\n  const isProduct = [\n    \"Equipos biomédicos\",\n    \"Insumos y dispositivos médicos\",\n    \"Equipamiento odontológico\",\n    \"Laboratorio y diagnóstico\",\n    \"Medicamentos\",\n    \"Mobiliario hospitalario\"\n  ].includes(category);\n\n  const isDigital =\n    category === \"Software y sistemas de salud\";\n\n  const isHealthTech =\n    isProduct || isMaintenance || isDigital;\n\n  const isHealthEntity =\n    /HOSPITAL|SALUD|ESE|IPS|DISPENSARIO|SUBRED/.test(entity);\n\n  let score = 0;\n\n  if (isProduct) score += 55;\n  if (isMaintenance) score += 50;\n  if (isDigital) score += 45;\n  if (hasPurchaseIntent) score += 20;\n  if (isHealthEntity) score += 10;\n  if (trackingStatus === \"EN_SEGUIMIENTO\") score += 10;\n  if (trackingStatus === \"BORRADOR\") score -= 5;\n  if (\n    trackingStatus === \"CANCELADO\" ||\n    trackingStatus === \"ADJUDICADO\"\n  ) score -= 30;\n  if (price > 0) score += 5;\n\n  score = Math.max(0, Math.min(100, score));\n\n  const relevance =\n    score >= 75 ? \"ALTA\" :\n    score >= 50 ? \"MEDIA\" : \"BAJA\";\n\n  // Recomendación de seguimiento.\n  let followUp = \"Validar manualmente\";\n\n  if (trackingStatus === \"CANCELADO\") {\n    followUp = \"No monitorear como oportunidad activa\";\n  } else if (trackingStatus === \"ADJUDICADO\") {\n    followUp = \"Conservar como histórico\";\n  } else if (trackingStatus === \"BORRADOR\") {\n    followUp = \"Vigilar posible publicación\";\n  } else if (trackingStatus === \"EN_SEGUIMIENTO\") {\n    followUp = \"Revisar disponibilidad en SECOP\";\n  }\n\n  // Conservamos los campos originales y agregamos\n  // nuestros campos analíticos.\n  return {\n    json: {\n      ...j,\n\n      healthtech_categoria: category,\n      healthtech_tipo_comercial: commercialType,\n      healthtech_score: score,\n      healthtech_relevancia: relevance,\n\n      healthtech_es_relevante: isHealthTech,\n      healthtech_es_compra:\n        isProduct && hasPurchaseIntent,\n      healthtech_intencion_compra: hasPurchaseIntent,\n\n      healthtech_estado: trackingStatus,\n      healthtech_seguimiento: followUp,\n\n      healthtech_evidencia: Object.entries(detected)\n        .filter(([, matches]) => matches.length > 0)\n        .map(([key, matches]) => `${key}: ${matches.join(\", \")}`),\n\n      precio_base_numero: price,\n      url_secop: j.urlproceso?.url ?? null,\n\n      fecha_publicacion:\n        j.fecha_de_publicacion_del ?? null,\n\n      fecha_ultima_publicacion:\n        j.fecha_de_ultima_publicaci ?? null\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        656,
+        -224
+      ],
+      "id": "54893382-1b9b-4d0b-ac83-3f273a345c81",
+      "name": "HealthTech Classification Engine"
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// ============================================================\n// HEALTHTECH OPPORTUNITY QUALIFICATION v2.0\n// Clasificación comercial + validación de oportunidades SECOP\n// ============================================================\n\n// Normalizar textos: mayúsculas, sin tildes y sin espacios extremos\nconst normalize = (value) =>\n  String(value ?? \"\")\n    .trim()\n    .toUpperCase()\n    .normalize(\"NFD\")\n    .replace(/[\\u0300-\\u036f]/g, \"\");\n\n// Interpretar valores booleanos provenientes de SECOP\nconst toBool = (value) => {\n  if (typeof value === \"boolean\") return value;\n\n  return [\"TRUE\", \"1\", \"SI\", \"YES\"].includes(\n    normalize(value)\n  );\n};\n\n// Obtener el primer valor disponible\nconst firstValue = (...values) =>\n  values.find(\n    value =>\n      value !== null &&\n      value !== undefined &&\n      String(value).trim() !== \"\"\n  ) ?? null;\n\n// Obtener fecha actual de Colombia\nconst getTodayBogota = () => {\n  const parts = new Intl.DateTimeFormat(\"en-CA\", {\n    timeZone: \"America/Bogota\",\n    year: \"numeric\",\n    month: \"2-digit\",\n    day: \"2-digit\"\n  }).formatToParts(new Date());\n\n  const get = type =>\n    parts.find(part => part.type === type)?.value;\n\n  return `${get(\"year\")}-${get(\"month\")}-${get(\"day\")}`;\n};\n\n// Convertir una fecha a YYYY-MM-DD sin desplazar\n// el día por diferencias de zona horaria\nconst parseDate = (value) => {\n  if (!value) return null;\n\n  const text = String(value).trim();\n\n  const match = text.match(/^(\\d{4})-(\\d{2})-(\\d{2})/);\n\n  if (match) {\n    const year = Number(match[1]);\n    const month = Number(match[2]);\n    const day = Number(match[3]);\n\n    const date = new Date(Date.UTC(year, month - 1, day));\n\n    if (\n      date.getUTCFullYear() !== year ||\n      date.getUTCMonth() !== month - 1 ||\n      date.getUTCDate() !== day\n    ) {\n      return null;\n    }\n\n    return text.slice(0, 10);\n  }\n\n  const date = new Date(text);\n\n  if (Number.isNaN(date.getTime())) return null;\n\n  return [\n    date.getUTCFullYear(),\n    String(date.getUTCMonth() + 1).padStart(2, \"0\"),\n    String(date.getUTCDate()).padStart(2, \"0\")\n  ].join(\"-\");\n};\n\n// Diferencia en días calendario\nconst daysBetween = (from, to) => {\n  if (!from || !to) return null;\n\n  const timestamp = date =>\n    Date.UTC(\n      Number(date.slice(0, 4)),\n      Number(date.slice(5, 7)) - 1,\n      Number(date.slice(8, 10))\n    );\n\n  return Math.round(\n    (timestamp(to) - timestamp(from)) / 86400000\n  );\n};\n\nconst today = getTodayBogota();\n\n// ============================================================\n// PROCESAMIENTO DE REGISTROS\n// ============================================================\n\nreturn $input.all().map(({ json: p }) => {\n\n  // ----------------------------------------------------------\n  // 1. DATOS DE CLASIFICACIÓN EXISTENTES\n  // ----------------------------------------------------------\n\n  const score = Number(p.healthtech_score) || 0;\n\n  const tipoComercial = normalize(\n    p.healthtech_tipo_comercial\n  );\n\n  const esCompraProducto =\n    toBool(p.healthtech_es_compra) &&\n    toBool(p.healthtech_intencion_compra) &&\n    tipoComercial === \"PRODUCTO\";\n\n  const estado = normalize(\n    p.estado_del_procedimiento\n  );\n\n  const estadoResumen = normalize(\n    p.estado_resumen\n  );\n\n  const estadoCompleto = `${estado} ${estadoResumen}`;\n\n  const adjudicado =\n    toBool(p.adjudicado) ||\n    estadoCompleto.includes(\"ADJUDICADO\");\n\n  const cancelado =\n    estadoCompleto.includes(\"CANCELADO\");\n\n  const esPublicado =\n    estadoCompleto.includes(\"PUBLICADO\");\n\n  const esBorrador =\n    estadoCompleto.includes(\"BORRADOR\") ||\n    estadoCompleto.includes(\"APROBADO\") ||\n    estadoCompleto.includes(\"EN APROBACION\");\n\n  const esEvaluacion =\n    estadoCompleto.includes(\"EVALUACION\");\n\n  const esSeleccionado =\n    estadoCompleto.includes(\"SELECCIONADO\");\n\n  const fase = normalize(\n    `${p.fase || \"\"} ${p.estado_resumen || \"\"}`\n  );\n\n  const faseOferta = fase.includes(\"OFERTA\");\n\n  // ----------------------------------------------------------\n  // 2. VALIDACIÓN DE ENLACES SECOP\n  // ----------------------------------------------------------\n\n  const url = String(\n    p.url_secop ||\n    p.urlproceso?.url ||\n    \"\"\n  );\n\n  const enlaceDirecto =\n    /noticeUID=CO1\\.NTC\\./i.test(url);\n\n  // ----------------------------------------------------------\n  // 3. VALIDACIÓN DE FECHAS\n  // ----------------------------------------------------------\n\n  // Fecha estimada de cierre o recepción de ofertas\n  const fechaLimiteOriginal = firstValue(\n    p.fecha_de_recepcion_de,\n    p.fecha_limite_ofertas,\n    p.fecha_limite,\n    p.fecha_de_cierre,\n    p.fecha_cierre\n  );\n\n  const fechaLimite = parseDate(fechaLimiteOriginal);\n\n  const diasParaCierre = fechaLimite\n    ? daysBetween(today, fechaLimite)\n    : null;\n\n  // Fecha de apertura efectiva\n  const fechaApertura = parseDate(\n    firstValue(\n      p.fecha_de_apertura_efectiva,\n      p.fecha_apertura\n    )\n  );\n\n  // Fecha de adjudicación\n  const fechaAdjudicacion = parseDate(\n    p.fecha_adjudicacion\n  );\n\n  // Fecha de publicación para medir antigüedad\n  const fechaReferencia = parseDate(\n    firstValue(\n      p.fecha_ultima_publicacion,\n      p.fecha_publicacion,\n      p.fecha_de_apertura_efectiva\n    )\n  );\n\n  const antiguedadDias = fechaReferencia\n    ? daysBetween(fechaReferencia, today)\n    : null;\n\n  // Consideramos antiguo un proceso con más de 90 días.\n  // Si no hay fecha, también requiere revisión manual.\n  const revisarAntiguedad =\n    esBorrador &&\n    (\n      antiguedadDias === null ||\n      antiguedadDias > 90\n    );\n\n  const antiguedadEstado =\n    antiguedadDias === null\n      ? \"SIN_FECHA_REFERENCIA\"\n      : antiguedadDias > 90\n        ? \"ANTIGUO\"\n        : antiguedadDias < 0\n          ? \"FECHA_FUTURA\"\n          : \"RECIENTE\";\n\n  // ----------------------------------------------------------\n  // 4. ESTADO COMERCIAL DEL RADAR\n  // ----------------------------------------------------------\n\n  let radarEstado;\n\n  if (cancelado) {\n    radarEstado = \"CANCELADO\";\n\n  } else if (adjudicado) {\n    radarEstado = \"ADJUDICADO\";\n\n  } else if (!esCompraProducto) {\n    radarEstado = \"NO_PRODUCTO\";\n\n  } else if (esBorrador) {\n    radarEstado = \"BORRADOR_VALIDAR_ANTIGUEDAD\";\n\n  } else if (\n    esPublicado &&\n    faseOferta &&\n    fechaLimite &&\n    diasParaCierre < 0\n  ) {\n    radarEstado = \"PLAZO_VENCIDO_POR_VALIDAR\";\n\n  } else if (\n    esPublicado &&\n    faseOferta &&\n    fechaLimite &&\n    diasParaCierre >= 0\n  ) {\n    radarEstado = \"ACTIVA_CON_FECHA_LIMITE\";\n\n  } else if (\n    esPublicado &&\n    faseOferta &&\n    !fechaLimite\n  ) {\n    radarEstado = \"ACTIVA_POR_VALIDAR_FECHA\";\n\n  } else if (esEvaluacion) {\n    radarEstado = \"PROCESO_EN_EVALUACION\";\n\n  } else if (esSeleccionado) {\n    radarEstado = \"PROCESO_SELECCIONADO\";\n\n  } else if (esPublicado) {\n    radarEstado = \"PUBLICADO_VALIDAR_FASE\";\n\n  } else {\n    radarEstado = \"REVISION_MANUAL\";\n  }\n\n  // ----------------------------------------------------------\n  // 5. RELEVANCIA COMERCIAL\n  // ----------------------------------------------------------\n\n  let relevanciaComercial;\n\n  if (score >= 80) {\n    relevanciaComercial = \"ALTA\";\n  } else if (score >= 50) {\n    relevanciaComercial = \"MEDIA\";\n  } else {\n    relevanciaComercial = \"BAJA\";\n  }\n\n  // ----------------------------------------------------------\n  // 6. PRIORIDAD DE ACCIÓN\n  // Separa interés comercial de urgencia operativa.\n  // ----------------------------------------------------------\n\n  let prioridadAccion;\n\n  if (\n    !esCompraProducto ||\n    cancelado ||\n    adjudicado\n  ) {\n    prioridadAccion = \"NO_APLICA\";\n\n  } else if (\n    radarEstado === \"ACTIVA_CON_FECHA_LIMITE\"\n  ) {\n    if (\n      diasParaCierre <= 7 ||\n      score >= 80\n    ) {\n      prioridadAccion = \"ALTA\";\n    } else if (score >= 50) {\n      prioridadAccion = \"MEDIA\";\n    } else {\n      prioridadAccion = \"BAJA\";\n    }\n\n  } else if (\n    radarEstado === \"ACTIVA_POR_VALIDAR_FECHA\"\n  ) {\n    prioridadAccion =\n      score >= 80 ? \"ALTA\" :\n      score >= 50 ? \"MEDIA\" : \"BAJA\";\n\n  } else if (\n    radarEstado === \"BORRADOR_VALIDAR_ANTIGUEDAD\"\n  ) {\n    prioridadAccion =\n      score >= 80 ? \"MEDIA\" : \"BAJA\";\n\n  } else if (\n    radarEstado === \"PROCESO_EN_EVALUACION\" ||\n    radarEstado === \"PROCESO_SELECCIONADO\"\n  ) {\n    prioridadAccion =\n      score >= 80 ? \"MEDIA\" : \"BAJA\";\n\n  } else {\n    prioridadAccion = \"BAJA\";\n  }\n\n  // ----------------------------------------------------------\n  // 7. ACCIÓN RECOMENDADA\n  // ----------------------------------------------------------\n\n  let accionRecomendada;\n\n  switch (radarEstado) {\n\n    case \"ACTIVA_CON_FECHA_LIMITE\":\n      accionRecomendada =\n        \"Validar requisitos y preparar oferta\";\n      break;\n\n    case \"ACTIVA_POR_VALIDAR_FECHA\":\n      accionRecomendada =\n        \"Consultar fecha límite y disponibilidad en SECOP\";\n      break;\n\n    case \"PLAZO_VENCIDO_POR_VALIDAR\":\n      accionRecomendada =\n        \"Verificar cierre, modificaciones o ampliaciones en SECOP\";\n      break;\n\n    case \"BORRADOR_VALIDAR_ANTIGUEDAD\":\n      accionRecomendada =\n        \"Verificar antigüedad y posible publicación\";\n      break;\n\n    case \"PROCESO_EN_EVALUACION\":\n      accionRecomendada =\n        \"Consultar evaluación y posibles resultados\";\n      break;\n\n    case \"PROCESO_SELECCIONADO\":\n      accionRecomendada =\n        \"Verificar adjudicación del proceso\";\n      break;\n\n    case \"PUBLICADO_VALIDAR_FASE\":\n      accionRecomendada =\n        \"Verificar fase contractual en SECOP\";\n      break;\n\n    case \"ADJUDICADO\":\n      accionRecomendada =\n        \"Conservar como histórico\";\n      break;\n\n    case \"CANCELADO\":\n      accionRecomendada =\n        \"No monitorear como oportunidad activa\";\n      break;\n\n    case \"NO_PRODUCTO\":\n      accionRecomendada =\n        \"Excluir de oportunidades de compra de productos\";\n      break;\n\n    default:\n      accionRecomendada =\n        \"Revisión manual del proceso\";\n  }\n\n  // ----------------------------------------------------------\n  // 8. SALIDA ENRIQUECIDA\n  // Conserva todos los campos anteriores.\n  // ----------------------------------------------------------\n\n  return {\n    json: {\n      ...p,\n\n      // Clasificación comercial\n      radar_es_compra_producto: esCompraProducto,\n      radar_relevancia_comercial: relevanciaComercial,\n      radar_prioridad: relevanciaComercial,\n      radar_prioridad_accion: prioridadAccion,\n\n      // Estado del proceso\n      radar_estado: radarEstado,\n      radar_fase_oferta: faseOferta,\n\n      // Enlaces\n      radar_enlace_directo: enlaceDirecto,\n      radar_revisar_enlace:\n        esCompraProducto && !enlaceDirecto,\n\n      // Fechas\n      radar_fecha_limite: fechaLimite,\n      radar_fuente_fecha_limite:\n        fechaLimite ? \"fecha_de_recepcion_de\" : null,\n\n      radar_dias_para_cierre: diasParaCierre,\n\n      radar_fecha_apertura: fechaApertura,\n      radar_fecha_adjudicacion: fechaAdjudicacion,\n\n      radar_fecha_referencia_antiguedad:\n        fechaReferencia,\n\n      // Antigüedad\n      radar_antiguedad_dias: antiguedadDias,\n      radar_antiguedad_estado: antiguedadEstado,\n      radar_revisar_antiguedad: revisarAntiguedad,\n\n      // Validaciones pendientes\n      radar_validar_fecha:\n        esCompraProducto && !fechaLimite,\n\n      radar_validar_estado:\n        esCompraProducto &&\n        radarEstado === \"REVISION_MANUAL\",\n\n      // Acción sugerida\n      radar_accion_recomendada: accionRecomendada,\n\n      // Fecha de ejecución\n      radar_fecha_evaluacion: today\n    }\n  };\n});\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        880,
+        -224
+      ],
+      "id": "df701d06-dd01-4aaa-9653-bc3cecc5e6b6",
+      "name": "HealthTech Opportunity Qualification"
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "dataTableId": {
+          "__rl": true,
+          "value": "healthtech_opportunities",
+          "mode": "name"
+        },
+        "matchType": "allConditions",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "id_del_proceso",
+              "keyValue": "={{ $json.id_del_proceso }}"
+            }
+          ]
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "id_del_proceso",
+              "displayName": "id_del_proceso",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "referencia_del_proceso",
+              "displayName": "referencia_del_proceso",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "entidad",
+              "displayName": "entidad",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "nit_entidad",
+              "displayName": "nit_entidad",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "departamento_entidad",
+              "displayName": "departamento_entidad",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "ciudad_entidad",
+              "displayName": "ciudad_entidad",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "nombre_del_procedimiento",
+              "displayName": "nombre_del_procedimiento",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "descripcion",
+              "displayName": "descripcion",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "estado_del_procedimiento",
+              "displayName": "estado_del_procedimiento",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "fase",
+              "displayName": "fase",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "healthtech_categoria",
+              "displayName": "healthtech_categoria",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "healthtech_tipo_comercial",
+              "displayName": "healthtech_tipo_comercial",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "healthtech_score",
+              "displayName": "healthtech_score",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "radar_estado",
+              "displayName": "radar_estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "radar_relevancia_comercial",
+              "displayName": "radar_relevancia_comercial",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "radar_prioridad_accion",
+              "displayName": "radar_prioridad_accion",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "radar_fecha_limite",
+              "displayName": "radar_fecha_limite",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "radar_dias_para_cierre",
+              "displayName": "radar_dias_para_cierre",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "radar_enlace_directo",
+              "displayName": "radar_enlace_directo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "radar_accion_recomendada",
+              "displayName": "radar_accion_recomendada",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "precio_base_numero",
+              "displayName": "precio_base_numero",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "url_secop",
+              "displayName": "url_secop",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "radar_fecha_evaluacion",
+              "displayName": "radar_fecha_evaluacion",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "radar_ultima_deteccion",
+              "displayName": "radar_ultima_deteccion",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        1328,
+        -96
+      ],
+      "id": "0236de92-e38a-43fe-b5d1-508098849625",
+      "name": "healthtech_opportunities"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Fecha y hora de detección en Colombia\nconst partesFecha = Object.fromEntries(\n  new Intl.DateTimeFormat('en-GB', {\n    timeZone: 'America/Bogota',\n    year: 'numeric',\n    month: '2-digit',\n    day: '2-digit',\n    hour: '2-digit',\n    minute: '2-digit',\n    second: '2-digit',\n    hourCycle: 'h23'\n  }).formatToParts(new Date()).map(p => [p.type, p.value])\n);\n\nconst fechaDeteccion = \n  `${partesFecha.year}-${partesFecha.month}-${partesFecha.day} ` +\n  `${partesFecha.hour}:${partesFecha.minute}:${partesFecha.second}`;\n\nconst records = $input.all();\n\nreturn records\n  .filter(({ json: p }) =>\n    p.radar_es_compra_producto === true &&\n    Boolean(p.id_del_proceso)\n  )\n  .map(({ json: p }) => ({\n    json: {\n      id_del_proceso: String(p.id_del_proceso),\n      referencia_del_proceso: p.referencia_del_proceso ?? \"\",\n      entidad: p.entidad ?? \"\",\n      nit_entidad: p.nit_entidad ?? \"\",\n      departamento_entidad: p.departamento_entidad ?? \"\",\n      ciudad_entidad: p.ciudad_entidad ?? \"\",\n\n      nombre_del_procedimiento:\n        p.nombre_del_procedimiento ?? \"\",\n\n      descripcion:\n        p.descripci_n_del_procedimiento ?? \"\",\n\n      estado_del_procedimiento:\n        p.estado_del_procedimiento ?? \"\",\n\n      fase: p.fase ?? \"\",\n\n      healthtech_categoria:\n        p.healthtech_categoria ?? \"\",\n\n      healthtech_tipo_comercial:\n        p.healthtech_tipo_comercial ?? \"\",\n\n      healthtech_score:\n        Number(p.healthtech_score) || 0,\n\n      radar_estado: p.radar_estado ?? \"\",\n\n      radar_relevancia_comercial:\n        p.radar_relevancia_comercial ?? \"\",\n\n      radar_prioridad_accion:\n        p.radar_prioridad_accion ?? \"\",\n\n      radar_fecha_limite:\n        p.radar_fecha_limite ?? \"\",\n\n      radar_dias_para_cierre:\n        p.radar_dias_para_cierre ?? null,\n\n      radar_enlace_directo:\n        Boolean(p.radar_enlace_directo),\n\n      radar_accion_recomendada:\n        p.radar_accion_recomendada ?? \"\",\n\n      precio_base_numero:\n        Number(p.precio_base_numero) || 0,\n\n      url_secop:\n        p.url_secop || p.urlproceso?.url || \"\",\n\n      radar_fecha_evaluacion:\n        p.radar_fecha_evaluacion ?? \"\",\n      \n      radar_ultima_deteccion: fechaDeteccion\n    }\n  }));\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1104,
+        -224
+      ],
+      "id": "e7b3efed-c7ea-4927-84e0-c1d9b9555f82",
+      "name": "HealthTech Storage Mapper"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 7
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -16,
+        -384
+      ],
+      "id": "9fb3bf9f-82bc-4292-9d45-a6338921dfa2",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "chatId": "YOUR_TELEGRAM_CHAT_ID",
+        "text": "={{ $json.mensaje_telegram }}",
+        "additionalFields": {
+          "parse_mode": "HTML"
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1792,
+        -576
+      ],
+      "id": "9442c468-fc64-4615-ac0a-735e49f1139d",
+      "name": "Send a text message"
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst records = $input.all();\n\n// Limpieza de textos procedentes de SECOP\nconst limpiarTexto = (valor) =>\n  String(valor ?? '')\n    .replace(/\\*/g, '')\n    .replace(/<[^>]*>/g, '')\n    .trim();\nconst now = new Date();\n\nconst parts = Object.fromEntries(\n  new Intl.DateTimeFormat('en-GB', {\n    timeZone: 'America/Bogota',\n    year: 'numeric',\n    month: '2-digit',\n    day: '2-digit',\n    hour: '2-digit',\n    minute: '2-digit',\n    second: '2-digit',\n    hourCycle: 'h23'\n  }).formatToParts(now).map(p => [p.type, p.value])\n);\n\nconst fechaAlerta =\n  `${parts.year}-${parts.month}-${parts.day} ` +\n  `${parts.hour}:${parts.minute}:${parts.second}`;\n\nconst candidates = new Map();\n\nfor (const { json: p } of records) {\n  const estado = String(p.radar_estado ?? '').toUpperCase();\n  const prioridad = String(\n    p.radar_prioridad_accion ?? ''\n  ).toUpperCase();\n\n  // Solo oportunidades publicadas y de prioridad alta\n  if (\n    estado !== 'ACTIVA_POR_VALIDAR_FECHA' ||\n    prioridad !== 'ALTA' ||\n    !p.id_del_proceso ||\n    p.radar_enlace_directo !== true\n  ) {\n    continue;\n  }\n\n  const id = String(p.id_del_proceso);\n  const fechaLimite = String(p.radar_fecha_limite ?? '');\n\n  // Un cambio de estado, prioridad o fecha genera\n  // una alerta nueva para el mismo proceso.\n  const alertKey = [\n    id,\n    estado,\n    prioridad,\n    fechaLimite || 'SIN_FECHA'\n  ].join('|');\n\n  const precio = Number(p.precio_base_numero) || 0;\n\n  const precioTexto = precio > 0\n    ? `$${precio.toLocaleString('es-CO')} COP`\n    : 'No informado';\n\n  const mensaje = [\n    '🚨 NUEVA OPORTUNIDAD HEALTH TECH',\n    '',\n    `📌 Proceso: ${p.referencia_del_proceso || id}`,\n    `🏥 Entidad: ${limpiarTexto(p.entidad) || 'No informada'}`,\n    `📍 Ubicación: ${p.ciudad_entidad || 'No definida'}, ${p.departamento_entidad || 'No definido'}`,\n    '',\n    `🩺 Categoría: ${p.healthtech_categoria || 'No definida'}`,\n    `📦 Objeto: ${p.descripcion || p.nombre_del_procedimiento || 'No informado'}`,\n    `💰 Presupuesto: ${precioTexto}`,\n    '',\n    `⚡ Prioridad: ${prioridad}`,\n    `📊 Estado radar: ${estado}`,\n    `📅 Fecha límite: ${fechaLimite || 'No identificada; verificar en SECOP'}`,\n    '',\n    '🔗 Consultar proceso:',\n    p.url_secop || 'Enlace no disponible',\n    '',\n    'Sistema: HealthTech Procurement Radar'\n  ].join('\\n');\n\n  if (!candidates.has(alertKey)) {\n    candidates.set(alertKey, {\n      json: {\n        alert_key: alertKey,\n        id_del_proceso: id,\n        radar_estado: estado,\n        radar_prioridad_accion: prioridad,\n        radar_fecha_limite: fechaLimite,\n        fecha_alerta: fechaAlerta,\n        mensaje_telegram: mensaje\n      }\n    });\n  }\n}\n\nreturn Array.from(candidates.values());\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1312,
+        -368
+      ],
+      "id": "493c2123-0851-4e4b-8b67-db442c7a5ecd",
+      "name": "HealthTech Alert Candidate Builder"
+    },
+    {
+      "parameters": {
+        "operation": "rowNotExists",
+        "dataTableId": {
+          "__rl": true,
+          "value": "healthtech_alerts_sent",
+          "mode": "name"
+        },
+        "matchType": "allConditions",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "alert_key",
+              "keyValue": "={{ $json.alert_key }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        1552,
+        -576
+      ],
+      "id": "da192f27-6dab-45ec-9ec6-ca25bc51a810",
+      "name": "If row does not exist"
+    },
+    {
+      "parameters": {
+        "dataTableId": {
+          "__rl": true,
+          "value": "healthtech_alerts_sent",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "alert_key": "={{ $('HealthTech Alert Candidate Builder').item.json.alert_key }}",
+            "id_del_proceso": "={{ $('HealthTech Alert Candidate Builder').item.json.id_del_proceso }}",
+            "radar_estado": "={{ $('HealthTech Alert Candidate Builder').item.json.radar_estado }}",
+            "radar_prioridad_accion": "={{ $('HealthTech Alert Candidate Builder').item.json.radar_prioridad_accion }}",
+            "radar_fecha_limite": "={{ $('HealthTech Alert Candidate Builder').item.json.radar_fecha_limite }}",
+            "fecha_alerta": "={{ $('HealthTech Alert Candidate Builder').item.json.fecha_alerta }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "alert_key",
+              "displayName": "alert_key",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "id_del_proceso",
+              "displayName": "id_del_proceso",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "radar_estado",
+              "displayName": "radar_estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "radar_prioridad_accion",
+              "displayName": "radar_prioridad_accion",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "radar_fecha_limite",
+              "displayName": "radar_fecha_limite",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "fecha_alerta",
+              "displayName": "fecha_alerta",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        2016,
+        -576
+      ],
+      "id": "7fc915ab-1801-4643-bdb8-6263d44616c2",
+      "name": "Insert row"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "HealthTech Classification Engine",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HealthTech Classification Engine": {
+      "main": [
+        [
+          {
+            "node": "HealthTech Opportunity Qualification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HealthTech Opportunity Qualification": {
+      "main": [
+        [
+          {
+            "node": "HealthTech Storage Mapper",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HealthTech Storage Mapper": {
+      "main": [
+        [
+          {
+            "node": "healthtech_opportunities",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "HealthTech Alert Candidate Builder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a text message": {
+      "main": [
+        [
+          {
+            "node": "Insert row",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HealthTech Alert Candidate Builder": {
+      "main": [
+        [
+          {
+            "node": "If row does not exist",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If row does not exist": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false,
+    "timezone": "America/Bogota"
+  },
+  "nodeGroups": [],
+  "tags": []
+}
